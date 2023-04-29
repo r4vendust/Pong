@@ -3,10 +3,6 @@
 
 Run::Run() : ball(display), paddle(display)
 {
-
-	Ball ball(display);
-	Paddle paddle(display);
-
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
