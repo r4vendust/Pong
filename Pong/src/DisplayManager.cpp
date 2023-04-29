@@ -11,6 +11,7 @@ DisplayManager::DisplayManager()
 	if (!isInitialized)
 	{
 		SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+		SetConfigFlags(FLAG_VSYNC_HINT);
 		InitWindow(width, height, gameTitle);
 		isInitialized = true;
 	}
