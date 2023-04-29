@@ -2,22 +2,17 @@
 
 #include "raylib.h"
 #include "DisplayManager.h"
-#include "Logger.h"
 
-class Paddle : public Logger
+class Paddle
 {
 public:
 	Paddle(DisplayManager& display);
-	virtual ~Paddle();
 	void Draw();
-	void InitControls();
-	void MoveUp();
-	void MoveDown();
+	virtual ~Paddle();
 
 private:
 	int paddleWidth, paddleHeight;
 	int pos_x, pos_y;
-	int speedY;
 	Color color;
 	DisplayManager& display;
 };

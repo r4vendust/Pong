@@ -9,13 +9,11 @@ Ball::Ball(DisplayManager& display) : display(display)
 	speedY = 300;
 	radius = 5.0;
 	color = WHITE;
-
-	Log("Ball Created");
 }
 
 Ball::~Ball()
 {
-	Log("Ball desctroyed");
+	std::cout << "LOG: Object Destroyed" << std::endl;
 }
 
 void Ball::Draw()

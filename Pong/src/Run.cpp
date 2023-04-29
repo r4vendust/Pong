@@ -3,6 +3,10 @@
 
 Run::Run() : ball(display), paddle(display)
 {
+
+	Ball ball(display);
+	Paddle paddle(display);
+
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
@@ -10,9 +14,8 @@ Run::Run() : ball(display), paddle(display)
 		ClearBackground(DARKGRAY);
 
 		ball.Draw();
-		ball.InitMoviment();
 		paddle.Draw();
-		paddle.InitControls();
+		ball.InitMoviment();
 
 		EndDrawing();
 	}

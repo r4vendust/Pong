@@ -1,9 +1,8 @@
 #pragma once
 
 #include "raylib.h"
-#include "Logger.h"
 
-class DisplayManager : public Logger
+class DisplayManager
 {
 public:
 	DisplayManager();
@@ -15,4 +14,5 @@ private:
 	static int width, height;
 	static const char* gameTitle;
 	static bool isInitialized;
+	static void Resize();
 };
