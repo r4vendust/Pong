@@ -7,12 +7,16 @@ class Paddle
 {
 public:
 	Paddle(DisplayManager& display);
-	void Draw();
 	virtual ~Paddle();
+	void Draw();
+	void InitControl();
+	void MoveUp();
+	void MoveDown();
 
 private:
 	int paddleWidth, paddleHeight;
 	int pos_x, pos_y;
+	int speedY;
 	Color color;
 	DisplayManager& display;
 };
