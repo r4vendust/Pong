@@ -2,9 +2,8 @@
 
 #include "raylib.h"
 #include "DisplayManager.h"
-#include <iostream>
 
-class Ball
+class Ball : public Logger
 {
 public:
 	Ball(DisplayManager& display);

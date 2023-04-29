@@ -1,5 +1,4 @@
 #include "DisplayManager.h"
-#include <iostream>
 
 int DisplayManager::width = 800;
 int DisplayManager::height = 600;
@@ -11,11 +10,12 @@ DisplayManager::DisplayManager()
 	if (!isInitialized)
 	{
 		SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+		SetConfigFlags(FLAG_VSYNC_HINT);
+
 		InitWindow(width, height, gameTitle);
 		isInitialized = true;
 	}
-	std::cout << "**********************************************************************\n";
-	std::cout << "LOG: DISPLAY MANAGER HAS BEEN INITIALIZED!" << std::endl;
+	Log("DISPLAY MANAGER HAS BEEN INITIALIZED!");
 }
 
 DisplayManager::~DisplayManager()
@@ -31,9 +31,4 @@ int DisplayManager::GetDisplayWidth()
 int DisplayManager::GetDisplayHeight()
 {
 	return height;
-}
-
-void Resize()
-{
-
 }
