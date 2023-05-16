@@ -33,8 +33,3 @@ int DisplayManager::GetDisplayHeight()
 {
 	return height;
 }
-
-void Resize()
-{
-
-}
