@@ -1,5 +1,4 @@
 #include "Paddle.h"
-#include <iostream>
 
 Paddle::Paddle(DisplayManager& display) : display(display)
 {

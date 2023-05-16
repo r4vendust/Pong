@@ -1,6 +1,7 @@
 #include "Ball.h"
 
-// Constructor
+Logger& logger = Logger::getInstance();
+
 Ball::Ball(DisplayManager& display) : display(display)
 {
 	pos_x = display.GetDisplayWidth() / 2.0;
@@ -13,7 +14,7 @@ Ball::Ball(DisplayManager& display) : display(display)
 
 Ball::~Ball()
 {
-	std::cout << "LOG: Object Destroyed" << std::endl;
+	logger.Log("LOG: Object Destroyed");
 }
 
 void Ball::Draw()

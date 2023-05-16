@@ -2,7 +2,7 @@
 
 #include "raylib.h"
 #include "DisplayManager.h"
-#include <iostream>
+#include "Logger.h"
 
 class Ball
 {

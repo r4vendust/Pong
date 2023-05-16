@@ -1,5 +1,6 @@
 #include "DisplayManager.h"
-#include <iostream>
+
+Logger& logger = Logger::getInstance();
 
 int DisplayManager::width = 800;
 int DisplayManager::height = 600;
@@ -15,8 +16,8 @@ DisplayManager::DisplayManager()
 		InitWindow(width, height, gameTitle);
 		isInitialized = true;
 	}
-	std::cout << "**********************************************************************\n";
-	std::cout << "LOG: DISPLAY MANAGER HAS BEEN INITIALIZED!" << std::endl;
+	logger.Log("**********************************************************************");
+	logger.Log("LOG: DISPLAY MANAGER HAS BEEN INITIALIZED!");
 }
 
 DisplayManager::~DisplayManager()
