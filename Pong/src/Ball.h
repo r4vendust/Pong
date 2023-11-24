@@ -1,8 +1,8 @@
 #pragma once
 
+#include <iostream>
 #include "raylib.h"
 #include "DisplayManager.h"
-#include "Logger.h"
 
 class Ball
 {
@@ -13,9 +13,9 @@ public:
 	void Behavior();
 	virtual ~Ball();
 private:
-	float pos_x, pos_y;
+	Vector2 position;
+	Vector2 speed;
 	float radius;
-	float speedX, speedY;
 	Color color;
 	DisplayManager& display;
 };

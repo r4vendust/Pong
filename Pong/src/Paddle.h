@@ -14,8 +14,10 @@ public:
 	void MoveDown();
 
 private:
-	int paddleWidth, paddleHeight;
-	int pos_x, pos_y;
+	Vector2 dimention;
+	Vector2 position;
+	Rectangle paddle;
+	Rectangle sidePaddle;
 	int speedY;
 	Color color;
 	DisplayManager& display;

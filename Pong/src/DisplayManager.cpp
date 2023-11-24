@@ -1,7 +1,5 @@
 #include "DisplayManager.h"
 
-Logger& logger = Logger::getInstance();
-
 int DisplayManager::width = 800;
 int DisplayManager::height = 600;
 const char* DisplayManager::gameTitle = "Pong";
@@ -11,13 +9,13 @@ DisplayManager::DisplayManager()
 {
 	if (!isInitialized)
 	{
-		SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+		SetConfigFlags(!FLAG_WINDOW_RESIZABLE);
 		SetConfigFlags(FLAG_VSYNC_HINT);
 		InitWindow(width, height, gameTitle);
 		isInitialized = true;
 	}
-	logger.Log("**********************************************************************");
-	logger.Log("LOG: DISPLAY MANAGER HAS BEEN INITIALIZED!");
+	std::cout << ("**********************************************************************\n");
+	std::cout << ("LOG: DISPLAY MANAGER HAS BEEN INITIALIZED!") << std::endl;
 }
 
 DisplayManager::~DisplayManager()

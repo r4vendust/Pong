@@ -2,10 +2,25 @@
 
 Paddle::Paddle(DisplayManager& display) : display(display)
 {
-	pos_x = display.GetDisplayWidth() / display.GetDisplayWidth() + 9;
-	pos_y = display.GetDisplayHeight() / 2.5;
-	paddleWidth = 15;
-	paddleHeight = 100;
+	position.x = display.GetDisplayWidth() / display.GetDisplayWidth() + 9;
+	position.y = display.GetDisplayHeight() / 2.5;
+	dimention = { 15, 100 };
+
+	paddle = { 
+		position.x,
+		position.y,
+		dimention.x,
+		dimention.y, 
+	};
+
+	/*
+	sidePaddle = {
+		position.x + dimention.x,
+		position.y + dimention.y,
+		dimention.y,
+		dimention.x,
+	};
+	*/
 	speedY = 500;
 	color = WHITE;
 
@@ -19,7 +34,8 @@ Paddle::~Paddle()
 
 void Paddle::Draw()
 {
-	DrawRectangle(pos_x, pos_y, paddleWidth, paddleHeight, color);
+	DrawRectangleRec(paddle, color);
+	//DrawRectangleRec(sidePaddle, GREEN);
 }
 
 void Paddle::InitControl()
@@ -37,16 +53,18 @@ void Paddle::InitControl()
 
 void Paddle::MoveUp()
 {
-	if (pos_y > display.GetDisplayHeight() / display.GetDisplayHeight())
+	if (paddle.y > display.GetDisplayHeight() / display.GetDisplayHeight())
 	{
-		pos_y -= speedY * GetFrameTime();
+		paddle.y -= speedY * GetFrameTime();
+		//sidePaddle.y -= speedY * GetFrameTime();
 	}
 }
 
 void Paddle::MoveDown()
 {
-	if (pos_y < display.GetDisplayHeight() - paddleHeight)
+	if (paddle.y < display.GetDisplayHeight() - dimention.y)
 	{
-		pos_y += speedY * GetFrameTime();
+		paddle.y += speedY * GetFrameTime();
+		//sidePaddle.y += speedY * GetFrameTime();
 	}
 }
