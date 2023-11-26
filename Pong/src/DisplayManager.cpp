@@ -23,6 +23,12 @@ DisplayManager::~DisplayManager()
 
 }
 
+DisplayManager& DisplayManager::getInstance()
+{
+	static DisplayManager instance;
+	return instance;
+}
+
 int DisplayManager::GetDisplayWidth()
 {
 	return width;
