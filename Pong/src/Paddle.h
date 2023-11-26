@@ -6,12 +6,14 @@
 class Paddle
 {
 public:
-	Paddle(DisplayManager& display);
+	Paddle();
 	virtual ~Paddle();
 	void Draw();
-	void InitControl();
+	void Control();
 	void MoveUp();
 	void MoveDown();
+	void SetPosition(float x, float y);
+	Rectangle GetPaddle();
 
 private:
 	Vector2 dimention;
@@ -20,5 +22,4 @@ private:
 	Rectangle sidePaddle;
 	int speedY;
 	Color color;
-	DisplayManager& display;
 };

@@ -1,7 +1,9 @@
 #include "Paddle.h"
 
-Paddle::Paddle(DisplayManager& display) : display(display)
+Paddle::Paddle()
 {
+	DisplayManager& display = DisplayManager::getInstance();
+
 	position.x = display.GetDisplayWidth() / display.GetDisplayWidth() + 9;
 	position.y = display.GetDisplayHeight() / 2.5;
 	dimention = { 15, 100 };
@@ -12,15 +14,6 @@ Paddle::Paddle(DisplayManager& display) : display(display)
 		dimention.x,
 		dimention.y, 
 	};
-
-	/*
-	sidePaddle = {
-		position.x + dimention.x,
-		position.y + dimention.y,
-		dimention.y,
-		dimention.x,
-	};
-	*/
 	speedY = 500;
 	color = WHITE;
 
@@ -35,10 +28,9 @@ Paddle::~Paddle()
 void Paddle::Draw()
 {
 	DrawRectangleRec(paddle, color);
-	//DrawRectangleRec(sidePaddle, GREEN);
 }
 
-void Paddle::InitControl()
+void Paddle::Control()
 {
 	if (IsKeyDown(KEY_UP))
 	{
@@ -53,18 +45,31 @@ void Paddle::InitControl()
 
 void Paddle::MoveUp()
 {
+	DisplayManager& display = DisplayManager::getInstance();
+
 	if (paddle.y > display.GetDisplayHeight() / display.GetDisplayHeight())
 	{
 		paddle.y -= speedY * GetFrameTime();
-		//sidePaddle.y -= speedY * GetFrameTime();
 	}
 }
 
 void Paddle::MoveDown()
 {
+	DisplayManager& display = DisplayManager::getInstance();
+
 	if (paddle.y < display.GetDisplayHeight() - dimention.y)
 	{
 		paddle.y += speedY * GetFrameTime();
-		//sidePaddle.y += speedY * GetFrameTime();
 	}
+}
+
+void Paddle::SetPosition(float x, float y)
+{
+	paddle.x = x;
+	paddle.y = y;
+}
+
+Rectangle Paddle::GetPaddle()
+{
+	return paddle;
 }
