@@ -1,7 +1,9 @@
 #include "Ball.h"
 
-Ball::Ball(DisplayManager& display) : display(display)
+Ball::Ball()
 {
+	DisplayManager& display = DisplayManager::getInstance();
+
 	position.x = display.GetDisplayWidth() / 2.0;
 	position.y = display.GetDisplayHeight() / 2.0;
 	speed = { 300, 300 };
@@ -48,4 +50,9 @@ void Ball::Behavior()
 		position.y = 0;
 		speed.y *= -1;
 	}
+}
+
+float Ball::GetVerticalPosition()
+{
+	return this->position.y;
 }
