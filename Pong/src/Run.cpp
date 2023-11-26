@@ -1,8 +1,8 @@
-#include "Run.h"
+#include "Run.h";
 
 
-Run::Run() : ball(display), paddle(display)
-{
+Run::Run()
+{;
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
@@ -12,7 +12,9 @@ Run::Run() : ball(display), paddle(display)
 		ball.Draw();
 		ball.InitMoviment();
 		paddle.Draw();
-		paddle.InitControl();
+		paddle.Control();
+		cpuPaddle.Draw();
+		cpuPaddle.Control(ball.GetVerticalPosition());
 
 		EndDrawing();
 	}
