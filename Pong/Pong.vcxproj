@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CpuPaddle.cpp" />
     <ClCompile Include="src\Logger.cpp" />
     <ClCompile Include="src\Paddle.cpp" />
     <ClCompile Include="src\Run.cpp" />
@@ -27,6 +28,7 @@
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CpuPaddle.h" />
     <ClInclude Include="src\Logger.h" />
     <ClInclude Include="src\Paddle.h" />
     <ClInclude Include="src\Run.h" />
