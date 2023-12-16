@@ -56,3 +56,18 @@ float Ball::GetVerticalPosition()
 {
 	return this->position.y;
 }
+
+Vector2 Ball::GetPosition()
+{
+	return this->position;
+}
+
+float Ball::GetRadius()
+{
+	return this->radius;
+}
+
+void Ball::SetSpeed()
+{
+	this->speed.x *= -1;
+}
