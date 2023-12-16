@@ -1,6 +1,5 @@
 #include "Run.h";
 
-
 Run::Run()
 {;
 	while (!WindowShouldClose())
@@ -8,6 +7,8 @@ Run::Run()
 		BeginDrawing();
 
 		ClearBackground(DARKGRAY);
+
+		collision.CheckCollision(paddle, cpuPaddle, ball);
 
 		ball.Draw();
 		ball.InitMoviment();

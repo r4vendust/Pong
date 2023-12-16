@@ -5,6 +5,7 @@
 #include "Ball.h"
 #include "Paddle.h"
 #include "CpuPaddle.h";
+#include "Collision.h";
 
 class Run
 {
@@ -15,4 +16,5 @@ private:
 	Ball ball;
 	Paddle paddle;
 	CpuPaddle cpuPaddle;
+	Collision collision;
 };
