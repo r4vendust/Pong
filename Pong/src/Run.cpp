@@ -15,7 +15,7 @@ Run::Run()
 		paddle.Draw();
 		paddle.Control();
 		cpuPaddle.Draw();
-		cpuPaddle.Control(ball.GetVerticalPosition());
+		cpuPaddle.Control(ball);
 
 		EndDrawing();
 	}

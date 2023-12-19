@@ -5,14 +5,18 @@ CpuPaddle::CpuPaddle()
 	SetPosition(GetScreenWidth() - 27, GetScreenHeight() / 2.5);
 }
 
-void CpuPaddle::Control(int ball_y)
+void CpuPaddle::Control(Ball &ball)
 {
-	if (GetPaddle().y + GetPaddle().height / 2 > ball_y)
+	if (ball.GetSpeed().x > 0)
 	{
-		MoveUp();
-	}
-	if (GetPaddle().y + GetPaddle().height / 2 <= ball_y)
-	{
-		MoveDown();
+		if (GetPaddle().y + GetPaddle().height / 2 > ball.GetVerticalPosition())
+		{
+			MoveUp();
+		}
+		if (GetPaddle().y + GetPaddle().height / 2 <= ball.GetVerticalPosition())
+		{
+			MoveDown();
+		}
+		
 	}
 }
