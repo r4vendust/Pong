@@ -16,6 +16,7 @@ public:
 	Vector2 GetPosition();
 	float GetRadius();
 	void SetSpeed();
+	Vector2 GetSpeed();
 
 private:
 	Vector2 position;

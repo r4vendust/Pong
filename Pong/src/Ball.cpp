@@ -71,3 +71,8 @@ void Ball::SetSpeed()
 {
 	this->speed.x *= -1;
 }
+
+Vector2 Ball::GetSpeed()
+{
+	return speed;
+}
