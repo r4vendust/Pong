@@ -4,8 +4,8 @@
 #include "DisplayManager.h"
 #include "Ball.h"
 #include "Paddle.h"
-#include "CpuPaddle.h";
-#include "Collision.h";
+#include "CpuPaddle.h"
+#include "Collision.h"
 
 class Run
 {

@@ -1,7 +1,7 @@
-#include "Run.h";
+#include "Run.h"
 
 Run::Run()
-{;
+{
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();

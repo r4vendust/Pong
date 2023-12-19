@@ -1,4 +1,4 @@
-#include "CpuPaddle.h";
+#include "CpuPaddle.h"
 
 CpuPaddle::CpuPaddle()
 {

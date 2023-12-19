@@ -1,6 +1,6 @@
 #pragma once
-#include "Paddle.h";
-#include "Ball.h";
+#include "Paddle.h"
+#include "Ball.h"
 
 class CpuPaddle : public Paddle
 {

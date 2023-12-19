@@ -1,7 +1,7 @@
 #pragma once
-#include "Paddle.h";
+#include "Paddle.h"
 #include "CpuPaddle.h"
-#include "Ball.h";
+#include "Ball.h"
 
 class Collision
 {
