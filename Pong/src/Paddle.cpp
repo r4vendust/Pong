@@ -41,6 +41,15 @@ void Paddle::Control()
 	{
 		MoveDown();
 	}
+	
+	if (IsKeyDown(KEY_LEFT_SHIFT))
+	{
+		SetSpeed(1200);
+	}
+	else if (IsKeyReleased(KEY_LEFT_SHIFT))
+	{
+		SetSpeed(500);
+	}
 }
 
 void Paddle::MoveUp()
@@ -72,4 +81,9 @@ void Paddle::SetPosition(float x, float y)
 Rectangle Paddle::GetPaddle()
 {
 	return paddle;
+}
+
+void Paddle::SetSpeed(int speed)
+{
+	speedY = speed;
 }
