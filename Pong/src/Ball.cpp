@@ -30,11 +30,13 @@ void Ball::InitMoviment()
 
 void Ball::Behavior()
 {
+	// Right
 	if (position.x > GetScreenWidth())
 	{
 		position.x = GetScreenWidth();
 		speed.x *= -1;
 	}
+	// Left
 	else if (position.x < 0)
 	{
 		position.x = 0;

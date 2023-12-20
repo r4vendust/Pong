@@ -2,6 +2,8 @@
 
 #include "raylib.h"
 #include "DisplayManager.h"
+#include "map"
+#include "functional"
 
 class Paddle
 {

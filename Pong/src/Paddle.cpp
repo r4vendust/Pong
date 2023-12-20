@@ -32,23 +32,23 @@ void Paddle::Draw()
 
 void Paddle::Control()
 {
-	if (IsKeyDown(KEY_UP))
+	std::map<int, std::function<void()>> keyMappings;
+
+	keyMappings[KEY_UP] = [&]() { MoveUp(); };
+	keyMappings[KEY_DOWN] = [&]() { MoveDown(); };
+	keyMappings[KEY_LEFT_SHIFT] = [&]() { SetSpeed(1200); };
+
+	for (const auto& [key, action] : keyMappings)
 	{
-		MoveUp();
-	}
-	
-	if (IsKeyDown(KEY_DOWN))
-	{
-		MoveDown();
-	}
-	
-	if (IsKeyDown(KEY_LEFT_SHIFT))
-	{
-		SetSpeed(1200);
-	}
-	else if (IsKeyReleased(KEY_LEFT_SHIFT))
-	{
-		SetSpeed(500);
+		if (IsKeyDown(key))
+		{
+			action();
+		}
+		else if (IsKeyReleased(key))
+		{
+			SetSpeed(500);
+		}
+
 	}
 }
 
