@@ -13,6 +13,6 @@ void Collision::CheckCollision(Paddle &paddle, CpuPaddle &cpuPaddle, Ball &ball)
 
 	if (paddleCollision || cpuPaddleCollision)
 	{
-		ball.SetSpeed();
+		ball.InvertSpeed();
 	}
 }

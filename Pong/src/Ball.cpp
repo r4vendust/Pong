@@ -69,7 +69,7 @@ float Ball::GetRadius()
 	return this->radius;
 }
 
-void Ball::SetSpeed()
+void Ball::InvertSpeed()
 {
 	this->speed.x *= -1;
 }
