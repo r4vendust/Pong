@@ -78,3 +78,13 @@ Vector2 Ball::GetSpeed()
 {
 	return speed;
 }
+
+void Ball::SetSpeedX(float x)
+{
+	this->speed.x = x;
+}
+
+void Ball::SetSpeedY(float y)
+{
+	this->speed.y = y;
+}

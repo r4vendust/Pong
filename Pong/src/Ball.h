@@ -17,6 +17,8 @@ public:
 	float GetRadius();
 	void InvertSpeed();
 	Vector2 GetSpeed();
+	void SetSpeedX(float x);
+	void SetSpeedY(float y);
 
 private:
 	Vector2 position;
