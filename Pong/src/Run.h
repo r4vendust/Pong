@@ -17,4 +17,6 @@ private:
 	Paddle paddle;
 	CpuPaddle cpuPaddle;
 	Collision collision;
+	DisplayManager &DM = DisplayManager::getInstance();
+	bool bIsRunning = true;
 };
