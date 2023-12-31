@@ -16,8 +16,6 @@ Paddle::Paddle()
 	};
 	speedY = 500;
 	color = WHITE;
-
-	Draw();
 }
 
 Paddle::~Paddle()
@@ -86,4 +84,10 @@ Rectangle Paddle::GetPaddle()
 void Paddle::SetSpeed(int speed)
 {
 	speedY = speed;
+}
+
+void Paddle::Update()
+{
+	Draw();
+	Control();
 }

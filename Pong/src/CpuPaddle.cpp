@@ -20,3 +20,9 @@ void CpuPaddle::Control(Ball &ball)
 		
 	}
 }
+
+void CpuPaddle::Update(Ball &ball)
+{
+	Draw();
+	Control(ball);
+}

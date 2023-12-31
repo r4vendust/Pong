@@ -17,6 +17,7 @@ public:
 	void SetPosition(float x, float y);
 	Rectangle GetPaddle();
 	void SetSpeed(int speed);
+	void Update();
 
 private:
 	Vector2 dimention;

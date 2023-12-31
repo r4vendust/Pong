@@ -7,5 +7,6 @@ class CpuPaddle : public Paddle
 public:
 	CpuPaddle();
 	void Control(Ball &ball);
+	void Update(Ball &ball);
 private:
 };
