@@ -88,3 +88,9 @@ void Ball::SetSpeedY(float y)
 {
 	this->speed.y = y;
 }
+
+void Ball::Update()
+{
+	Draw();
+	InitMoviment();
+}

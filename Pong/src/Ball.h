@@ -19,6 +19,7 @@ public:
 	Vector2 GetSpeed();
 	void SetSpeedX(float x);
 	void SetSpeedY(float y);
+	void Update();
 
 private:
 	Vector2 position;
