@@ -28,13 +28,13 @@ void Collision::CheckCollision(Paddle &paddle, CpuPaddle &cpuPaddle, Ball &ball)
 			ball.GetSpeed().y * -1
 		);
 		ball.InvertSpeed();
-		std::cout << "Collision: Top" << std::endl;
+		TraceLog(LOG_INFO, "Top Collision");
 	}
 	else if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment.middle)
 		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment.middle))
 	{
 		ball.InvertSpeed();
-		std::cout << "Collision: Middle" << std::endl;
+		TraceLog(LOG_INFO ,"Middle Collision");
 	}
 	else if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment.bottom)
 		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment.bottom))
@@ -43,7 +43,7 @@ void Collision::CheckCollision(Paddle &paddle, CpuPaddle &cpuPaddle, Ball &ball)
 			ball.GetSpeed().y * -1
 		);
 		ball.InvertSpeed();
-		std::cout << "Collision: Bottom" << std::endl;
+		TraceLog(LOG_INFO, "Bottom Collision");
 	}
 }
 

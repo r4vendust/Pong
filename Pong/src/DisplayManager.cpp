@@ -14,8 +14,8 @@ DisplayManager::DisplayManager()
 		InitWindow(width, height, gameTitle);
 		isInitialized = true;
 	}
-	std::cout << ("**********************************************************************\n");
-	std::cout << ("LOG: DISPLAY MANAGER HAS BEEN INITIALIZED!") << std::endl;
+	TraceLog(LOG_INFO, "**********************************************************************");
+	TraceLog(LOG_INFO, "DISPLAY MANAGER HAS BEEN INITIALIZED!");
 }
 
 DisplayManager::~DisplayManager()

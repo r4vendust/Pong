@@ -13,7 +13,7 @@ Ball::Ball()
 
 Ball::~Ball()
 {
-	std::cout << ("LOG: Object Destroyed") << std::endl;
+	TraceLog(LOG_INFO, "Ball Destroyed");
 }
 
 void Ball::Draw()
