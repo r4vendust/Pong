@@ -11,6 +11,7 @@ public:
 	void operator=(DisplayManager const&) = delete;
 	static int GetDisplayWidth();
 	static int GetDisplayHeight();
+	static void Update();
 
 private:
 	DisplayManager();

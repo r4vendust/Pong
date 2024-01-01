@@ -31,10 +31,18 @@ DisplayManager& DisplayManager::getInstance()
 
 int DisplayManager::GetDisplayWidth()
 {
+	Update();
 	return width;
 }
 
 int DisplayManager::GetDisplayHeight()
 {
+	Update();
 	return height;
+}
+
+void DisplayManager::Update()
+{
+	width = GetScreenWidth();
+	height = GetScreenHeight();
 }
