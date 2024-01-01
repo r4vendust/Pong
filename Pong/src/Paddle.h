@@ -23,7 +23,6 @@ private:
 	Vector2 dimention;
 	Vector2 position;
 	Rectangle paddle;
-	Rectangle sidePaddle;
 	int speedY;
 	Color color;
 };
