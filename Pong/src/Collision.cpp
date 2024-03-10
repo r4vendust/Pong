@@ -1,10 +1,5 @@
 #include "Collision.h"
 
-typedef struct ThreeSegmentRectangle
-{
-	Rectangle top, middle, bottom;
-};
-
 Collision::Collision()
 {
 	paddleCollision = false;
@@ -13,62 +8,53 @@ Collision::Collision()
 
 void Collision::CheckCollision(Paddle &paddle, CpuPaddle &cpuPaddle, Ball &ball)
 {
-	ThreeSegmentRectangle paddleSegment = ThreeSegmentCollision(paddle.GetPaddle());
-	ThreeSegmentRectangle cpuPaddleSegment = ThreeSegmentCollision(cpuPaddle.GetPaddle());
+	float rect1Height = paddle.GetPaddle().height / 4;
+	float rect2Height = paddle.GetPaddle().height / 2;
+	float rect3Height = rect1Height;
+
+	paddle.GetPaddle();
+	std::deque<Rectangle> paddleSegment = {
+		{paddle.GetPaddle().x, paddle.GetPaddle().y, paddle.GetPaddle().width, rect1Height},
+		{paddle.GetPaddle().x, paddle.GetPaddle().y + rect1Height, paddle.GetPaddle().width, rect2Height},
+		{paddle.GetPaddle().x, paddle.GetPaddle().y + rect1Height + rect2Height, paddle.GetPaddle().width, rect3Height},
+	};
+
+	std::deque<Rectangle> cpuPaddleSegment = {
+	{cpuPaddle.GetPaddle().x, cpuPaddle.GetPaddle().y, cpuPaddle.GetPaddle().width, rect1Height},
+	{cpuPaddle.GetPaddle().x, cpuPaddle.GetPaddle().y + rect1Height, cpuPaddle.GetPaddle().width, rect2Height},
+	{cpuPaddle.GetPaddle().x, cpuPaddle.GetPaddle().y + rect1Height + rect2Height, cpuPaddle.GetPaddle().width, rect3Height},
+	};
 
 	DrawCollisionSegment(paddleSegment);
 	DrawCollisionSegment(cpuPaddleSegment);
 
 	DrawCircleLines(ball.GetPosition().x, ball.GetPosition().y, ball.GetRadius(), RED);
 
-	if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment.top)
-		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment.top))
+	if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment[0])
+		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment[0]))
 	{
-		ball.SetSpeedY(
-			ball.GetSpeed().y * -1
-		);
+		ball.SetSpeedY(ball.GetSpeed().y * -1);
 		ball.InvertSpeed();
 		TraceLog(LOG_INFO, "Top Collision");
 	}
-	else if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment.middle)
-		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment.middle))
+	else if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment[1])
+		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment[1]))
 	{
 		ball.InvertSpeed();
 		TraceLog(LOG_INFO ,"Middle Collision");
 	}
-	else if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment.bottom)
-		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment.bottom))
+	else if (CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), paddleSegment[2])
+		|| CheckCollisionCircleRec(ball.GetPosition(), ball.GetRadius(), cpuPaddleSegment[2]))
 	{
-		ball.SetSpeedY(
-			ball.GetSpeed().y * -1
-		);
+		ball.SetSpeedY(ball.GetSpeed().y * -1);
 		ball.InvertSpeed();
 		TraceLog(LOG_INFO, "Bottom Collision");
 	}
 }
 
-ThreeSegmentRectangle Collision::ThreeSegmentCollision(Rectangle rect)
+void Collision::DrawCollisionSegment(std::deque<Rectangle> rec)
 {
-	float rect1Height = rect.height / 4;
-	float rect2Height = rect.height / 2;
-	float rect3Height = rect1Height;
-
-	ThreeSegmentRectangle threeSegmentRectangle;
-
-	Rectangle paddleTop = { rect.x, rect.y, rect.width, rect1Height };
-	Rectangle paddleMiddle = { rect.x, rect.y + rect1Height, rect.width + offset, rect2Height };
-	Rectangle paddleBottom = { rect.x, rect.y + rect1Height + rect2Height, rect.width, rect3Height };
-
-	threeSegmentRectangle.top = paddleTop;
-	threeSegmentRectangle.middle = paddleMiddle;
-	threeSegmentRectangle.bottom = paddleBottom;
-
-	return threeSegmentRectangle;
-}
-
-void Collision::DrawCollisionSegment(ThreeSegmentRectangle rec)
-{
-	DrawRectangleLines(rec.top.x, rec.top.y, rec.top.width, rec.top.height, RED);
-	DrawRectangleLines(rec.middle.x, rec.middle.y, rec.middle.width, rec.middle.height, GREEN);
-	DrawRectangleLines(rec.bottom.x, rec.bottom.y, rec.bottom.width, rec.bottom.height, BLUE);
+		DrawRectangleLines(rec[0].x, rec[0].y, rec[0].width, rec[0].height, RED);
+		DrawRectangleLines(rec[1].x, rec[1].y, rec[1].width, rec[1].height, GREEN);
+		DrawRectangleLines(rec[2].x, rec[2].y, rec[2].width, rec[2].height, BLUE);
 }

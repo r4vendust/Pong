@@ -18,8 +18,11 @@ public:
 	Rectangle GetPaddle();
 	void SetSpeed(int speed);
 	void Update();
+	void GamepadAxisDirection(int gamepad);
 
 private:
+	float width;
+	float height;
 	Vector2 dimention;
 	Vector2 position;
 	Rectangle paddle;
