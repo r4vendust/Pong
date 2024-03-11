@@ -1,7 +1,7 @@
 #include "DisplayManager.h"
 
 int DisplayManager::width = 800;
-int DisplayManager::height = 600;
+int DisplayManager::height = width / 4 * 3;
 const char* DisplayManager::gameTitle = "Pong";
 bool DisplayManager::isInitialized = false;
 
@@ -13,6 +13,7 @@ DisplayManager::DisplayManager()
 		SetConfigFlags(FLAG_VSYNC_HINT);
 		InitWindow(width, height, gameTitle);
 		isInitialized = true;
+		HideCursor();
 	}
 	TraceLog(LOG_INFO, "**********************************************************************");
 	TraceLog(LOG_INFO, "DISPLAY MANAGER HAS BEEN INITIALIZED!");
@@ -20,7 +21,7 @@ DisplayManager::DisplayManager()
 
 DisplayManager::~DisplayManager()
 {
-
+	
 }
 
 DisplayManager& DisplayManager::getInstance()
