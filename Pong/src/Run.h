@@ -1,11 +1,9 @@
 #pragma once
 
 #include "raylib.h"
-#include "DisplayManager.h"
-#include "Ball.h"
-#include "Paddle.h"
-#include "CpuPaddle.h"
-#include "Collision.h"
+#include "PauseScreen.h"
+#include "MenuScreen.h"
+#include "GameScreen.h"
 
 class Run
 {
@@ -18,5 +16,12 @@ private:
 	CpuPaddle cpuPaddle;
 	Collision collision;
 	DisplayManager &DM = DisplayManager::getInstance();
-	bool bIsRunning = true;
+	//PauseScreen pauseScreen;
+
+	bool bIsRunning;
+	enum screen;
+	Image cursorDefaultImage;
+	Image cursorSelectImage;
+	Texture2D cursorDefaultTexture;
+	Texture2D cursorSelectTexture;
 };
