@@ -1,53 +1,96 @@
 #include "Ball.h"
 
-// Constructor
-Ball::Ball(DisplayManager& display) : display(display)
+Ball::Ball()
 {
-	pos_x = display.GetDisplayWidth() / 2.0;
-	pos_y = display.GetDisplayHeight() / 2.0;
-	speedX = 300;
-	speedY = 300;
+	DisplayManager& display = DisplayManager::getInstance();
+
+	position.x = display.GetDisplayWidth() / 2.0;
+	position.y = display.GetDisplayHeight() / 2.0;
+	speed = { 300, 300 };
 	radius = 5.0;
 	color = WHITE;
 }
 
 Ball::~Ball()
 {
-	std::cout << "LOG: Object Destroyed" << std::endl;
+	TraceLog(LOG_INFO, "Ball Destroyed");
 }
 
 void Ball::Draw()
 {
-	DrawCircle((int)pos_x, (int)pos_y, radius, color);
+	DrawCircle((int)position.x, (int)position.y , radius, color);
 }
 
 void Ball::InitMoviment()
 {
-	pos_x += speedX * GetFrameTime();
-	pos_y += speedY * GetFrameTime();
+	position.x += speed.x * GetFrameTime();
+	position.y += speed.y * GetFrameTime();
 	Behavior();
 }
 
 void Ball::Behavior()
 {
-	if (pos_x > GetScreenWidth())
+	// Right
+	if (position.x > GetScreenWidth())
 	{
-		pos_x = GetScreenWidth();
-		speedX *= -1;
+		position.x = GetScreenWidth();
+		speed.x *= -1;
 	}
-	else if (pos_x < 0)
+	// Left
+	else if (position.x < 0)
 	{
-		pos_x = 0;
-		speedX *= -1;
+		position.x = 0;
+		speed.x *= -1;
 	}
-	if (pos_y > GetScreenHeight())
+	if (position.y > GetScreenHeight())
 	{
-		pos_y = GetScreenHeight();
-		speedY *= -1;
+		position.y = GetScreenHeight();
+		speed.y *= -1;
 	}
-	else if (pos_y < 0)
+	else if (position.y < 0)
 	{
-		pos_y = 0;
-		speedY *= -1;
+		position.y = 0;
+		speed.y *= -1;
 	}
+}
+
+float Ball::GetVerticalPosition()
+{
+	return this->position.y;
+}
+
+Vector2 Ball::GetPosition()
+{
+	return this->position;
+}
+
+float Ball::GetRadius()
+{
+	return this->radius;
+}
+
+void Ball::InvertSpeed()
+{
+	this->speed.x *= -1;
+}
+
+Vector2 Ball::GetSpeed()
+{
+	return speed;
+}
+
+void Ball::SetSpeedX(float x)
+{
+	this->speed.x = x;
+}
+
+void Ball::SetSpeedY(float y)
+{
+	this->speed.y = y;
+}
+
+void Ball::Update()
+{
+	Draw();
+	InitMoviment();
 }

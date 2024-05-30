@@ -2,20 +2,27 @@
 
 #include "raylib.h"
 #include "DisplayManager.h"
-#include <iostream>
 
 class Ball
 {
 public:
-	Ball(DisplayManager& display);
+	Ball();
 	void Draw();
 	void InitMoviment();
 	void Behavior();
 	virtual ~Ball();
+	float GetVerticalPosition();
+	Vector2 GetPosition();
+	float GetRadius();
+	void InvertSpeed();
+	Vector2 GetSpeed();
+	void SetSpeedX(float x);
+	void SetSpeedY(float y);
+	void Update();
+
 private:
-	float pos_x, pos_y;
+	Vector2 position;
+	Vector2 speed;
 	float radius;
-	float speedX, speedY;
 	Color color;
-	DisplayManager& display;
 };
