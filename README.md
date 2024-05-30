@@ -19,10 +19,10 @@ Fear not, my child, just follow this simple steps
 # Preview
 
 ## Main Menu
-<img src="assets/readme/mainMenu.png" width="50%">
+<img src="Pong/assets/readme/mainMenu.png" width="50%">
 
 ## Options
-<img src="assets/readme/Options.png" width="50%">
+<img src="Pong/assets/readme/options.png" width="50%">
 
 ## In-Game
-<img src="assets/readme/ingame.png" width="50%">
+<img src="Pong/assets/readme/ingame.png" width="50%">
