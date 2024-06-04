@@ -33,11 +33,11 @@ void GameScreen::Update()
 {
 	collision.CheckCollision(paddle, cpuPaddle, ball);
 
-	ball.InitMoviment();
-	paddle.Control();
-	cpuPaddle.Control(ball);
+	//ball.InitMoviment();
+	//paddle.Control();
+	//cpuPaddle.Control(ball);
 
-	//ball.Update();
-	//paddle.Update();
-	//cpuPaddle.Update(ball);
+	ball.Update();
+	paddle.Update();
+	cpuPaddle.Update(ball);
 }
