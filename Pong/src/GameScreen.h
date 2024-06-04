@@ -26,5 +26,7 @@ private:
 	CpuPaddle cpuPaddle;
 	Collision collision;
 	DisplayManager& DM = DisplayManager::getInstance();
+
+	int playerScore, cpuScore;
 };
 
