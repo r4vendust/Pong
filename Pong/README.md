@@ -13,7 +13,7 @@ Fear not, my child, just follow this simple steps
 * Right click on Pong (the project) and properties
 * Under C/C++ and General tab, add the include folder from Raylib v5.0
 * Go to the Linker/General and add the lib folder
-* On the Linker/Input tab add raylib.lib, winmm.lib and gdi32.lib and it'll be something like this "raylib.lib;winmm.lib;gdi32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)" don't forget the semicolon
+* On the Linker/Input tab add raylib.lib, winmm.lib and gdi32.lib and it'll be something like this "raylib.lib;winmm.lib;gdi32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)" don't forget the semicolons
 * Compile and Run
 
 # Preview
