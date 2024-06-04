@@ -1,9 +1,8 @@
 # Getting Started
 
 ## Raylib Dependency
-* Go to raylib repository https://github.com/raysan5/raylib and follow the Windows instructions with vcpkg for the easiest install or 
-if you're a noob go to releases and download raylib v5.0
-* If you're a noob, follow raylib instruction to install this other way
+* Go to raylib repository https://github.com/raysan5/raylib and follow the Windows instructions with vcpkg for the easiest install
+* If you're a noob go to releases and download raylib v5.0 and install this other way
 
 ### I'm a noob, please help!
 Fear not, my child, just follow this simple steps
