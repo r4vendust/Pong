@@ -9,6 +9,8 @@ Ball::Ball()
 	speed = { 300, 300 };
 	radius = 5.0;
 	color = WHITE;
+
+	horizontalCollision = 0;
 }
 
 Ball::~Ball()
@@ -30,17 +32,21 @@ void Ball::InitMoviment()
 
 void Ball::Behavior()
 {
+	horizontalCollision = 0;
 	// Right
 	if (position.x > GetScreenWidth())
 	{
 		position.x = GetScreenWidth();
 		speed.x *= -1;
+		horizontalCollision = 1;
+
 	}
 	// Left
 	else if (position.x < 0)
 	{
 		position.x = 0;
 		speed.x *= -1;
+		horizontalCollision = -1;
 	}
 	if (position.y > GetScreenHeight())
 	{
@@ -93,4 +99,9 @@ void Ball::Update()
 {
 	Draw();
 	InitMoviment();
+}
+
+int Ball::getHCollision()
+{
+	return horizontalCollision;
 }
