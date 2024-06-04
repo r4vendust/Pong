@@ -13,7 +13,6 @@ public:
 	static GameScreen* GetInstance();
 	static void DestroyScreen();
 	void Draw();
-	void Control();
 	void Update();
 
 private:
@@ -27,5 +26,7 @@ private:
 	CpuPaddle cpuPaddle;
 	Collision collision;
 	DisplayManager& DM = DisplayManager::getInstance();
+
+	int playerScore, cpuScore;
 };
 

@@ -19,10 +19,13 @@ public:
 	void SetSpeedX(float x);
 	void SetSpeedY(float y);
 	void Update();
+	int getHCollision();
 
 private:
 	Vector2 position;
 	Vector2 speed;
 	float radius;
 	Color color;
+
+	int horizontalCollision;
 };
