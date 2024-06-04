@@ -19,10 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Run_backup.cpp" />
     <ClCompile Include="src\GameScreen.cpp" />
     <ClCompile Include="src\MenuScreen.cpp" />
-    <ClCompile Include="src\ButtonR.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\PauseScreen.cpp" />
     <ClCompile Include="src\Collision.cpp" />
@@ -37,7 +35,6 @@
   <ItemGroup>
     <ClInclude Include="src\GameScreen.h" />
     <ClInclude Include="src\MenuScreen.h" />
-    <ClInclude Include="src\ButtonR.hpp" />
     <ClInclude Include="src\Button.h" />
     <ClInclude Include="src\PauseScreen.h" />
     <ClInclude Include="src\Collision.h" />
