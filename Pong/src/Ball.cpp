@@ -6,7 +6,7 @@ Ball::Ball()
 
 	position.x = display.GetDisplayWidth() / 2.0;
 	position.y = display.GetDisplayHeight() / 2.0;
-	speed = { 300, 300 };
+	speed = { 300 * 2, 300 * 2};
 	radius = 5.0;
 	color = WHITE;
 
