@@ -13,7 +13,6 @@ public:
 	static GameScreen* GetInstance();
 	static void DestroyScreen();
 	void Draw();
-	void Control();
 	void Update();
 
 private:
